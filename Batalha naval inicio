@@ -1,1 +1,40 @@
+#include <stdio.h>
 
+int main() {
+    char tabuleiro[10][10];  // Tabuleiro 10x10 (linhas 1-10, colunas A-J)
+    char colunas[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+
+    // Inicializa o tabuleiro com '0' (água)
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            tabuleiro[i][j] = '0';
+        }
+    }
+
+    // Navio na horizontal: linha 3, colunas D, E, F
+    for (int j = 3; j <= 5; j++) {
+        tabuleiro[2][j] = '3';  // usando numeral 3 como padrao do navio
+    }
+
+    // Navio vertical: coluna B, linhas 5 a 7
+    for (int i = 4; i <= 6; i++) {
+        tabuleiro[i][1] = '3';  // usando mesmo numeral 3 como padrao do navio
+    }
+
+    // Imprime na tela o tabuleiro com rótulos ( linhas 1 à 10 e colunas A à J)
+    printf("   ");
+    for (int j = 0; j < 10; j++) {
+        printf("%c ", colunas[j]);  // Letras das colunas (A-J)
+    }
+    printf("\n");
+
+    for (int i = 0; i < 10; i++) {
+        printf("%2d ", i + 1);  // Número da linha (1-10)
+        for (int j = 0; j < 10; j++) {
+            printf("%c ", tabuleiro[i][j]);  // Conteúdo da célula
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
